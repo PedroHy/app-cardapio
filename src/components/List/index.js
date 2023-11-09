@@ -3,15 +3,13 @@ import { FlatList } from 'react-native';
 
 import styles from './style';
 import ProductCard from '../ProductCard';
+import pizzas from "../../assets/api";
 
 const List = ()=>{
     return(
         <FlatList style={styles.list}
-        data={[
-            {key: 'Devin'},
-            
-          ]}
-          renderItem={({item}) => <ProductCard />}>
+        data={pizzas}
+          renderItem={({item}) => <ProductCard pizza={item} />}>
         </FlatList>
     )
 }

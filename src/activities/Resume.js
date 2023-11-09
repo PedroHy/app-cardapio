@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import ResumeItem from '../components/ResumeItem';
+import { ProductContext } from "../contexts/products";
 
 export default function Resume({ navigation }) {
+
+    const { products } = useContext(ProductContext)
+
 
     return (
         <View style={styles.container}>
             <FlatList style={styles.list}
-                data={[
-                    { key: 'item1' },
-                ]}
-                renderItem={({ item }) => <ResumeItem />}>
+                data={ products }
+                renderItem={({ item }) => <ResumeItem quantite={item.quantite} name={item.name} price={item.price} />}>
             </FlatList>
             <View style={styles.totalArea}>
                 <Text style={styles.txtTotal}>Total:</Text>

@@ -3,14 +3,14 @@ import { View, Text } from 'react-native';
 
 import styles from './style';
 
-const ResumeItem = ()=>{
+const ResumeItem = ({quantite, name, price})=>{
     return(
         <View style={styles.item}>
             <View style={styles.sub}>
-                <Text style={styles.txtName}>2x   </Text>
-                <Text style={styles.txtName}>Nome Produto</Text>
+                <Text style={styles.txtName}>{quantite}x   </Text>
+                <Text style={styles.txtName}>{name}</Text>
             </View>
-            <Text style={styles.price}>R$25,00</Text>
+            <Text style={styles.price}>R${price}</Text>
         </View>
     )
 }

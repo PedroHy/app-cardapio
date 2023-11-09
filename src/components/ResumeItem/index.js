@@ -10,7 +10,7 @@ const ResumeItem = ({quantite, name, price})=>{
                 <Text style={styles.txtName}>{quantite}x   </Text>
                 <Text style={styles.txtName}>{name}</Text>
             </View>
-            <Text style={styles.price}>R${price}</Text>
+            <Text style={styles.price}>R${price.toFixed(2).replace('.',',')}</Text>
         </View>
     )
 }

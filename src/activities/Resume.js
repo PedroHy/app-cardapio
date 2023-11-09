@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import ResumeItem from '../components/ResumeItem';
 import { ProductContext } from "../contexts/products";
@@ -7,6 +7,15 @@ export default function Resume({ navigation }) {
 
     const { products } = useContext(ProductContext)
 
+    const [total, setTotal] = useState(0)
+
+    useEffect(()=>{
+        let subtotal = 0
+        products.forEach(element => {
+            subtotal += (element.quantite*element.price)
+        });
+        setTotal(subtotal)
+    }, [products])
 
     return (
         <View style={styles.container}>
@@ -16,7 +25,7 @@ export default function Resume({ navigation }) {
             </FlatList>
             <View style={styles.totalArea}>
                 <Text style={styles.txtTotal}>Total:</Text>
-                <Text style={styles.txtValueTotal}>R$00,00</Text>
+                <Text style={styles.txtValueTotal}>R${total.toFixed(2).replace('.',',')}</Text>
             </View>
             <TouchableOpacity style={styles.btnFinish} onPress={() => navigation.goBack()}>
                 <Text style={styles.btnText}>Finalizar Pedido</Text>

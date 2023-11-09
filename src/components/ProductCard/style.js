@@ -48,6 +48,12 @@ const styles = StyleSheet.create({
         right: 0
     },
 
+    price:{
+        fontSize: 24,
+        position: 'absolute',
+        bottom: 4
+    },
+
     btnLess: {
         justifyContent: 'center',
         alignItems: 'center',

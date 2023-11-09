@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
 
     price:{
         fontSize: 18
+    },
+
+    sub:{
+        flexDirection: 'row'
     }
 });
 

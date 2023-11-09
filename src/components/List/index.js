@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import React from "react";
+import { FlatList } from 'react-native';
 
 import styles from './style';
 import ProductCard from '../ProductCard';
@@ -11,8 +12,6 @@ const List = ()=>{
             
           ]}
           renderItem={({item}) => <ProductCard />}>
-            
-
         </FlatList>
     )
 }
